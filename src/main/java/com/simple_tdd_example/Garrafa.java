@@ -2,15 +2,19 @@ package com.simple_tdd_example;
 
 public class Garrafa {
 
-   public Garrafa(int capacidade, int volume) {
+   private int capacidade;
+   private int volume;
 
+   public Garrafa(int capacidade, int volume) {
+      this.capacidade = capacidade;
+      this.volume = volume;
    }
 
    public int getCapacidade() {
-      return 1000;
+      return capacidade;
    }
 
    public int getVolume() {
-      return 700;
+      return volume;
    }
 }
