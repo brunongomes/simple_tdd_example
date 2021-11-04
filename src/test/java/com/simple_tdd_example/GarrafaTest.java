@@ -1,10 +1,11 @@
 package com.simple_tdd_example;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 import org.junit.Test;
 
 public class GarrafaTest {
-   
+
    private Garrafa garrafa;
 
    @Test
@@ -16,7 +17,7 @@ public class GarrafaTest {
       assertEquals(capacidade, garrafa.getCapacidade());
       assertEquals(volume, garrafa.getVolume());
    }
-   
+
    @Test
    public void capacidadeEVolumeInicial2Test() {
       int capacidade = 900;
@@ -26,4 +27,14 @@ public class GarrafaTest {
       assertEquals(capacidade, garrafa.getCapacidade());
       assertEquals(volume, garrafa.getVolume());
    }
+
+   @Test(expected = IllegalArgumentException.class)
+   public void tentaConstuirGarrafaComCapacidadeNegativaTest() {
+      int capacidadeNegativa = -750;
+      int volume = 150;
+
+      garrafa = new Garrafa(capacidadeNegativa, volume);
+      fail("Você não pode criar uma garrafa com capacidade negativa.");
+   }
+   
 }
