@@ -45,4 +45,14 @@ public class GarrafaTest {
       garrafa = new Garrafa(capacidadeZero, volume);
       fail("Você não pode criar uma garrafa com capacidade zero.");
    }
+
+    //Teste para tentar inserir um volume negativo
+    @Test(expected = IllegalArgumentException.class)
+    public void tentaConstruirGarrafaComVolumeNegativoTest() {
+        int capacidade = 1000;
+        int volumeNegativo = -150;
+
+        Garrafa garrafa = new Garrafa(capacidade, volumeNegativo);
+        fail("Você não pode criar uma garrafa com volume negativo.");
+    }
 }
